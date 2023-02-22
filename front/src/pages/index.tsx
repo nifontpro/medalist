@@ -8,9 +8,10 @@ const Home: NextPage = () => {
     console.log(info)
 
     return (
-        <div>
-            Hello world!
-            {info?.data}
+        <div className="flex flex-row w-full">
+            <div className="basis-1/2 text-blue-700 hover:text-green-700">Hello world!</div>
+            <div className="basis-1/4 text-red-600"> Test string</div>
+            <div className="basis-1/4">{info?.data}</div>
         </div>
     );
 };

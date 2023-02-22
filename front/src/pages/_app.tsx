@@ -1,4 +1,4 @@
-import '@/app/globals.css'
+import '@/app/globals.scss'
 import type {AppProps} from 'next/app'
 import MainProvider from "@/app/MainProvider";
 
