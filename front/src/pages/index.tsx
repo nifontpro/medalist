@@ -2,12 +2,7 @@ import type {NextPage} from 'next';
 import {useEffect} from "react";
 import dynamic from "next/dynamic";
 import {useRouter} from "next/router";
-
-const CLIENT_ID = "todoapp-client"; // название должен совпадать c клиентом из KeyCloak
-
-// !! в каждой версии KeyCloak могут меняться URI - поэтому нужно сверяться с документацией
-const KEYCLOAK_URI = "http://localhost:8180/realms/todoapp-realm/protocol/openid-connect"; // общий URI KeyCloak
-const AUTH_CODE_REDIRECT_URI = 'http://localhost:3000/redirect'; // куда auth server будет отправлять auth code
+import {AUTH_CODE_REDIRECT_URI, CLIENT_ID, KEYCLOAK_URI} from "@/auth/data/auth.api";
 
 const Home: NextPage = () => {
 
@@ -21,7 +16,7 @@ const Home: NextPage = () => {
 
     useEffect(() => {
         console.log(query.code)
-        const challenge = pkceChallenge()
+        const challenge = pkceChallenge(128)
         let tmpState = generateState(30)
         // dispatch(authActions.setState({
         //     state: tmpState,
@@ -58,11 +53,11 @@ const generateState = (length: number) => {
 
 function requestAuthCode(state: string, codeChallenge: string): string {
     const params = [
-        'response_type=code', // хотим получить auth code, который затем поменяем на токены
-        'state=' + state, // защита клиента - что ответ от auth server пришел именно на его запрос
-        'client_id=' + CLIENT_ID, // настройки из KC
-        'scope=openid', // какие именно данные хотим получить от auth server (какие токены и пр.)
-        'code_challenge=' + codeChallenge, //  в след. запросе на получение токенов - значение codeChallenge будет сравниваться в auth server со значением на основе code_verifier - чтобы убедиться, что оба запроса пришли от того же пользователя
+        'response_type=code',
+        'state=' + state,
+        'client_id=' + CLIENT_ID,
+        'scope=openid',
+        'code_challenge=' + codeChallenge,
         'code_challenge_method=S256',
         'redirect_uri=' + AUTH_CODE_REDIRECT_URI,
     ];
