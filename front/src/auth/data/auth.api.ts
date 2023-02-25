@@ -3,7 +3,7 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/dist/query/react';
 // const KEYCLOAK_URI = "https://localhost:8443/realms/todoapp-realm/protocol/openid-connect"
 export const KEYCLOAK_URI = "http://localhost:8180/realms/todoapp-realm/protocol/openid-connect"
 export const CLIENT_ID = "todoapp-client"
-export const AUTH_CODE_REDIRECT_URI = "http://localhost:3000/redirect"
+export const AUTH_CODE_REDIRECT_URI = "http://localhost:3000/login/redirect"
 
 export interface IAuthResponse {
     access_token: string

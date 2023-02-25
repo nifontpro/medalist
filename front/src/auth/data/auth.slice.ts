@@ -2,25 +2,31 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {TypeRootState, useTypedSelector} from "@/auth/data/store";
 
 interface IAuthState {
-    state: string
-    codeVerifier: string
-    codeChallenge: string
+    isAuth: boolean
+    isLogin: boolean
+    accessToken: string | undefined
 }
 
 const initialState: IAuthState = {
-    state: "",
-    codeVerifier: "",
-    codeChallenge: ""
+    isAuth: false,
+    isLogin: false,
+    accessToken: undefined
 }
 
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        setState: (thisState, action: PayloadAction<IAuthState>) => {
-            thisState.state = action.payload.state
-            thisState.codeVerifier = action.payload.codeVerifier
-            thisState.codeChallenge = action.payload.codeChallenge
+        setAccessToken: (state, action: PayloadAction<string>) => {
+            state.accessToken = action.payload
+            state.isAuth = true
+        },
+        setLogin: (state, action: PayloadAction<boolean>) => {
+            state.isLogin = action.payload
+        },
+        logout: (state) => {
+            state.accessToken = undefined
+            state.isAuth = false
         },
     }
 })

@@ -5,6 +5,8 @@ import {authSlice} from "@/auth/data/auth.slice";
 import {TypedUseSelectorHook, useSelector} from "react-redux";
 import storage from 'redux-persist/lib/storage'
 import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE} from 'redux-persist'
+import {resourceApi} from "@/app/resource/data/resource.api";
+import {testApi} from "@/app/resource/data/test.api";
 
 const persistConfig = {
     key: 'root',
@@ -15,6 +17,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
     auth: authSlice.reducer,
     [authApi.reducerPath]: authApi.reducer,
+    [resourceApi.reducerPath]: resourceApi.reducer,
+    [testApi.reducerPath]: testApi.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -29,6 +33,8 @@ export const store = configureStore({
             }
         }).concat(
             authApi.middleware,
+            resourceApi.middleware,
+            testApi.middleware,
         ),
 });
 

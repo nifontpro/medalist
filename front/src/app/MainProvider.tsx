@@ -11,7 +11,9 @@ const MainProvider: FC<PropsWithChildren> = ({children}) => {
 
         <Provider store={store}>
             <PersistGate persistor={persistor} loading={null}>
+                {/*<MainProvider>*/}
                 {children}
+                {/*</MainProvider>*/}
             </PersistGate>
         </Provider>
     )
