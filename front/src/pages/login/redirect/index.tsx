@@ -1,9 +1,9 @@
 import {NextPage} from "next";
 import {NextRouter, useRouter} from "next/router";
 import React, {useEffect} from "react";
-import {authApi, IAuthResponse} from "@/auth/data/auth.api";
+import {authApi} from "@/auth/data/auth.api";
 import {useDispatch} from "react-redux";
-import {authActions, useAuthState} from "@/auth/data/auth.slice";
+import {useAuthState} from "@/auth/data/auth.slice";
 
 const Redirect: NextPage = () => {
 
@@ -22,15 +22,7 @@ const Redirect: NextPage = () => {
     useEffect(() => {
 
         const state = localStorage.getItem("state")
-        const queryState = query.state
         const queryCode = query.code
-
-
-        console.log(`state: ${state}`)
-        console.log(`queryState: ${queryState}`)
-        console.log(`queryCode: ${queryCode}`)
-        console.log(`codeVerifier: ${codeVerifier}`)
-        console.log(`patch: ${pathname}`)
 
         if (queryCode == undefined) {
             return
@@ -44,10 +36,8 @@ const Redirect: NextPage = () => {
         console.log('GET ACCESS')
         getAccessToken({code: queryCode, codeVerifier})
             .unwrap()
-            .then(async (response: IAuthResponse) => {
-                await dispatch(authActions.setAccessToken(response.access_token))
-                // await push('/')
-                // removeQueryParams(router)
+            .then(async () => {
+                await push('/')
             })
 
     }, [codeVerifier, dispatch, getAccessToken, pathname, push, query.code, query.state, router])

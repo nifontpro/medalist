@@ -1,20 +1,18 @@
 import {FC, PropsWithChildren, useEffect} from 'react';
 import {useRouter} from 'next/router';
-import {authActions, useAuthState} from "@/auth/data/auth.slice";
-import {useDispatch} from "react-redux";
+import {useAuthState} from "@/auth/data/auth.slice";
 
 const AuthProvider: FC<PropsWithChildren> = ({children}) => {
 
-    const {isAuth, isLogin} = useAuthState()
-    const dispatch = useDispatch();
+    const {isAuth} = useAuthState()
     const {push} = useRouter();
 
     useEffect(() => {
-        if (!isAuth && !isLogin) {
-            dispatch(authActions.setLogin(true))
+        if (!isAuth) {
             push("/login").then()
         }
-    }, [dispatch, isAuth, isLogin, push])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isAuth])
 
     return <>{children}</>;
 };

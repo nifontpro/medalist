@@ -5,7 +5,7 @@ import {resourceApi} from "@/app/resource/data/resource.api";
 
 const Home: NextPage = () => {
 
-    const {accessToken} = useAuthState();
+    const {accessToken, refreshToken} = useAuthState();
     // const [getInfo] = testApi.useGetTestDataMutation()
     const [getInfo] = resourceApi.useGetTestDataMutation()
     // const [getInfo] = resourceApi.useGetTestMutation()
@@ -29,6 +29,7 @@ const Home: NextPage = () => {
                 Get Data
             </button>
             <div className="text-green-700">{accessToken}</div>
+            <div className="text-red-700">{refreshToken}</div>
         </div>
     );
 };
