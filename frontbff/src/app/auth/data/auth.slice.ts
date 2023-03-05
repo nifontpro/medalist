@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {TypeRootState, useTypedSelector} from "@/auth/data/store";
-import {IAuthResponse} from "@/auth/data/auth.api";
+import {IAuthResponse} from "@/app/auth/data/auth.api";
+import {TypeRootState, useTypedSelector} from "@/app/storage/store";
 
 interface IAuthState {
     isAuth: boolean

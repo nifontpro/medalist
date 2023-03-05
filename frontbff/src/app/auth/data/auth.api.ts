@@ -1,11 +1,11 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/dist/query/react';
-import {authActions} from "@/auth/data/auth.slice";
+import {authActions} from "@/app/auth/data/auth.slice";
 
 // const KEYCLOAK_URI = "https://localhost:8443/realms/todoapp-realm/protocol/openid-connect"
 export const KEYCLOAK_URI = "http://localhost:8180/realms/todoapp-realm/protocol/openid-connect"
 export const CLIENT_ID = "todoapp-client"
-export const APP_URI = "http://localhost:3000"
-export const AUTH_CODE_REDIRECT_URI = APP_URI + "/login/redirect"
+export const APP_URL = "http://localhost:3000"
+export const AUTH_CODE_REDIRECT_URI = APP_URL + "/login/redirect"
 
 export interface IAuthResponse {
     access_token: string

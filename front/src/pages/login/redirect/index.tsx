@@ -2,7 +2,6 @@ import {NextPage} from "next";
 import {NextRouter, useRouter} from "next/router";
 import React, {useEffect} from "react";
 import {authApi} from "@/auth/data/auth.api";
-import {useDispatch} from "react-redux";
 import {useAuthState} from "@/auth/data/auth.slice";
 
 const Redirect: NextPage = () => {
@@ -12,8 +11,7 @@ const Redirect: NextPage = () => {
     const query = router.query
     const pathname = router.pathname
 
-    const [getAccessToken] = authApi.useGetAccessTokenMutation()
-    const dispatch = useDispatch();
+    const [getLoginData] = authApi.useGetLoginDataMutation()
     const {accessToken} = useAuthState();
 
     const codeVerifier = localStorage.getItem("codeVerifier")
@@ -33,14 +31,14 @@ const Redirect: NextPage = () => {
             return
         }
 
-        console.log('GET ACCESS')
-        getAccessToken({code: queryCode, codeVerifier})
+        console.log('GET LOGIN DATA')
+        getLoginData({code: queryCode, codeVerifier})
             .unwrap()
             .then(async () => {
                 await push('/')
             })
 
-    }, [codeVerifier, dispatch, getAccessToken, pathname, push, query.code, query.state, router])
+    }, [codeVerifier, getLoginData, pathname, push, query.code, query.state, router])
 
     return (
         <div className="flex flex-col m-2 text-3xl break-all">
