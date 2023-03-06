@@ -15,18 +15,19 @@ const Home: NextPage = () => {
         if (!isAuth) {
             push("/login").then()
         }
-    }, [dispatch, isAuth, push])
+    }, [isAuth])
 
-    // const [getInfo] = testApi.useGetTestDataMutation()
-    const {data: getInfo} = resourceApi.useGetTestDataQuery()
+    const {data} = resourceApi.useGetTestDataQuery()
+    console.log(data?.res)
 
     const buttonHandler = async (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault()
         logoutWin("")
     };
 
     return (
         <div className="flex flex-col m-2 break-all">
-            <div className="text-red-700">info: {getInfo?.data}</div>
+            <div className="text-red-700">info: {data?.res}</div>
             <button onClick={buttonHandler} className="m-3 border-2 text-blue-700">
                 Logout
             </button>

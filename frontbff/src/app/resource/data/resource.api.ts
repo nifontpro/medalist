@@ -1,14 +1,13 @@
 import {createApi} from '@reduxjs/toolkit/dist/query/react';
-import {baseQuery} from "@/app/resource/data/base.api";
+import {baseQueryWithLogout} from "@/app/resource/data/base.api";
 
 export const resourceApi = createApi({
     reducerPath: 'Resource',
-    // baseQuery: baseQueryWithReauth,
-    baseQuery: baseQuery,
+    baseQuery: baseQueryWithLogout,
     tagTypes: ['Resource'],
     endpoints: (build) => ({
 
-        getTestData: build.query<{ data: string }, void>({
+        getTestData: build.query<{ res: string }, void>({
             query: () => {
                 return {
                     method: 'GET',

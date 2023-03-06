@@ -1,10 +1,11 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/dist/query/react';
+import {PROXY_SERVER_URL} from "@/app/resource/data/base.api";
 
-const BFF_URI = "http://localhost:8902/bff"
+const BFF_URI = `${PROXY_SERVER_URL}/bff`
 
 export const accessQuery = fetchBaseQuery({
     baseUrl: BFF_URI,
-    credentials: "include"
+    credentials: "include",
 })
 
 export const bffApi = createApi({
