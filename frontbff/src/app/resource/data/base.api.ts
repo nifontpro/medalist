@@ -1,21 +1,22 @@
 import {BaseQueryFn, FetchArgs, fetchBaseQuery, FetchBaseQueryError} from "@reduxjs/toolkit/query";
 import {CLIENT_ID, IAuthResponse, KEYCLOAK_URI} from "@/app/auth/data/auth.api";
 import {authActions} from "@/app/auth/data/auth.slice";
-import {TypeRootState} from "@/app/storage/store";
 
 export const API_SERVER_URL = "http://localhost:8765/msm-user"
+export const PROXY_SERVER_URL = "http://localhost:8902"
 
 export const baseQuery = fetchBaseQuery({
-    baseUrl: API_SERVER_URL,
+    baseUrl: PROXY_SERVER_URL,
+    credentials: "include"
 })
 
 const accessQuery = fetchBaseQuery({
     baseUrl: API_SERVER_URL,
     prepareHeaders: (headers, {getState}) => {
-        const accessToken = (getState() as TypeRootState).auth.accessToken
-        if (accessToken) {
-            headers.set("authorization", `Bearer ${accessToken}`);
-        }
+        // const accessToken = (getState() as TypeRootState).auth.accessToken
+        // if (accessToken) {
+        //     headers.set("authorization", `Bearer ${accessToken}`);
+        // }
         return headers;
     },
 })
@@ -34,7 +35,7 @@ export const baseQueryWithReauth: BaseQueryFn<string | FetchArgs, unknown, Fetch
             // const refreshTokenSlice = (api.getState() as TypeRootState).auth.refreshToken
 
             if (refreshToken == null) {
-                api.dispatch(authActions.setNoAuth())
+                api.dispatch(authActions.setAuth(false))
                 return result
             }
 
@@ -48,15 +49,15 @@ export const baseQueryWithReauth: BaseQueryFn<string | FetchArgs, unknown, Fetch
             )
 
             if (refreshResult?.error != undefined) {
-                api.dispatch(authActions.setNoAuth())
+                api.dispatch(authActions.setAuth(false))
             } else {
                 if (refreshResult?.data) {
                     const refreshResponse = refreshResult.data as IAuthResponse
-                    api.dispatch(authActions.setAuthData(refreshResponse))
+                    // api.dispatch(authActions.setAuthData(refreshResponse))
                     // retry the original query with new access token
                     result = await accessQuery(args, api, extraOptions)
                 } else {
-                    api.dispatch(authActions.setNoAuth())
+                    api.dispatch(authActions.setAuth(false))
                 }
             }
         }

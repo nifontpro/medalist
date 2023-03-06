@@ -1,7 +1,7 @@
 import {BaseQueryFn, FetchArgs, fetchBaseQuery, FetchBaseQueryError} from "@reduxjs/toolkit/query";
-import {authActions} from "@/auth/data/auth.slice";
 import {CLIENT_ID, IAuthResponse, KEYCLOAK_URI} from "@/auth/data/auth.api";
 import {TypeRootState} from "@/auth/data/store";
+import {authActions} from "@/auth/data/auth.slice";
 
 export const API_SERVER_URL = "http://localhost:8765/msm-user"
 

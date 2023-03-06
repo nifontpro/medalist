@@ -2,13 +2,16 @@ import type {NextPage} from 'next';
 import React, {useEffect} from "react";
 import {useRouter} from "next/router";
 import {bffApi} from "@/app/resource/data/bffApi";
-import {STATE_KEY, USE_REFRESH_KEY} from "@/pages";
+import {setRefreshTokenCookieExists, STATE_KEY} from "@/pages/login";
+import {useDispatch} from "react-redux";
+import {authActions} from "@/app/auth/data/auth.slice";
 
 const Redirect: NextPage = () => {
 
     const {query} = useRouter()
     const [exchangeRefreshToAccessToken] = bffApi.useExchangeRefreshToAccessTokenMutation()
     const [sendCodeToBff] = bffApi.useSendCodeToBFFMutation()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         checkAuthCode()
@@ -16,7 +19,7 @@ const Redirect: NextPage = () => {
 
     return (
         <div className="flex flex-col m-2 break-all">
-            <div className="text-blue-700 text-2xl">Redirect page</div>
+            <div className="text-blue-700 text-2xl">Redirect login page</div>
         </div>
     );
 
@@ -50,17 +53,19 @@ const Redirect: NextPage = () => {
 
             localStorage.removeItem(STATE_KEY);
             // отправляем auth code в BFF, чтобы он получил все токены и сохранил их в куках
+            console.log('Send code to bff')
             sendCodeToBff(authCode).unwrap().then(() => {
-                // флаг, что в куках есть refresh token и его можно обменивать потом на новые access token
-                localStorage.setItem(USE_REFRESH_KEY, "true");
-
+                setRefreshTokenCookieExists(true)
+                dispatch(authActions.setAuth(true))
                 // получаем данные с API Resource Server
                 // getDataFromResourceServer();
             })
+                .catch(()=>{
+                    console.log('ERROR: Send code to bff')
+                })
 
         } else {
-            // initAccessToken(); // если ошибка - заново отправляем для ввода логин-пароль
-            console.log('Init access token')
+            dispatch(authActions.setAuth(false)) // если ошибка - заново отправляем для ввода логин-пароль
         }
     }
 

@@ -1,6 +1,6 @@
 import {FC, PropsWithChildren, useEffect} from 'react';
 import {useRouter} from 'next/router';
-import {useAuthState} from "@/auth/data/auth.slice";
+import {useAuthState} from "@/../../../../frontbff/src/app/auth/data/auth.slice";
 
 const AuthProvider: FC<PropsWithChildren> = ({children}) => {
 

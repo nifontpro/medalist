@@ -4,6 +4,7 @@ const BFF_URI = "http://localhost:8902/bff"
 
 export const accessQuery = fetchBaseQuery({
     baseUrl: BFF_URI,
+    credentials: "include"
 })
 
 export const bffApi = createApi({
@@ -16,7 +17,7 @@ export const bffApi = createApi({
             query: () => {
                 return {
                     method: 'GET',
-                    url: 'newaccesstoken',
+                    url: 'refresh',
                 }
             },
             invalidatesTags: ['Bff']

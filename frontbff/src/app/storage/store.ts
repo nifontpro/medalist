@@ -5,8 +5,8 @@ import storage from 'redux-persist/lib/storage'
 import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE} from 'redux-persist'
 import {resourceApi} from "@/app/resource/data/resource.api";
 import {bffApi} from "@/app/resource/data/bffApi";
-import {authSlice} from "@/app/auth/data/auth.slice";
 import {authApi} from "@/app/auth/data/auth.api";
+import {authSlice} from "@/app/auth/data/auth.slice";
 
 const persistConfig = {
     key: 'root',

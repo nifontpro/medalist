@@ -1,18 +1,17 @@
 import type {NextPage} from 'next';
 import React, {useEffect} from "react";
 import {resourceApi} from "@/app/resource/data/resource.api";
-import {authActions, useAuthState} from "@/auth/data/auth.slice";
 import {APP_URI, CLIENT_ID, KEYCLOAK_URI} from "@/auth/data/auth.api";
 import {useJwt} from "react-jwt";
 import {IPayload} from "@/app/resource/model/idToken";
 import {useRouter} from "next/router";
 import {useDispatch} from "react-redux";
+import {authActions, useAuthState} from "@/auth/data/auth.slice";
 
 const Home: NextPage = () => {
 
     const {push} = useRouter()
-    const {isAuth} = useAuthState()
-    const {idToken} = useAuthState()
+    const {isAuth, idToken} = useAuthState()
     const dispatch = useDispatch()
     const {decodedToken, isExpired} = useJwt(idToken || '');
     const payload = decodedToken as IPayload | undefined

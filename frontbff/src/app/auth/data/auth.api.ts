@@ -1,5 +1,4 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/dist/query/react';
-import {authActions} from "@/app/auth/data/auth.slice";
 
 // const KEYCLOAK_URI = "https://localhost:8443/realms/todoapp-realm/protocol/openid-connect"
 export const KEYCLOAK_URI = "http://localhost:8180/realms/todoapp-realm/protocol/openid-connect"
@@ -42,7 +41,7 @@ export const authApi = createApi({
             async onQueryStarted(args, {dispatch, queryFulfilled}) {
                 try {
                     const {data} = await queryFulfilled;
-                    await dispatch(authActions.setAuthData(data));
+                    // await dispatch(authActions.setAuthData(data));
                 } catch (error) {
                     console.error(`ERROR LOGIN!`, error)
                 }

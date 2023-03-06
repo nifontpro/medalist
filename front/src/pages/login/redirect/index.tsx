@@ -2,7 +2,7 @@ import {NextPage} from "next";
 import {NextRouter, useRouter} from "next/router";
 import React, {useEffect} from "react";
 import {authApi} from "@/auth/data/auth.api";
-import {useAuthState} from "@/auth/data/auth.slice";
+import {useAuthState} from "@/../../../../../frontbff/src/app/auth/data/auth.slice";
 
 const Redirect: NextPage = () => {
 
