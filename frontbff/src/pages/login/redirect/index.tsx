@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import type {NextPage} from 'next';
 import React, {useEffect} from "react";
 import {useRouter} from "next/router";
@@ -15,8 +16,8 @@ const Redirect: NextPage = () => {
     useEffect(() => {
         const authCode = query.code as string | undefined
         const state = query.state as string | undefined
-        const error = query.error
-        const errorDescription = query.error_description
+        // const error = query.error
+        // const errorDescription = query.error_description
 
         console.log(`authCode: ${authCode}`)
         console.log(`state: ${state}`)
@@ -50,9 +51,7 @@ const Redirect: NextPage = () => {
             console.log('Send code to bff')
             sendCodeToBff(authCode).unwrap().then(() => {
                 dispatch(authActions.setAuth(true))
-                // push("/").then()
-                // получаем данные с API Resource Server
-                // getDataFromResourceServer();
+                push("/").then()
             })
                 .catch(() => {
                     console.log('ERROR: Send code to bff')

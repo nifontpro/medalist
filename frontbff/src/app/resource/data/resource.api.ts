@@ -17,6 +17,16 @@ export const resourceApi = createApi({
             providesTags: ['Resource']
         }),
 
+        getAdminData: build.query<{ res: string }, void>({
+            query: () => {
+                return {
+                    method: 'GET',
+                    url: 'bff/admin_data',
+                }
+            },
+            providesTags: ['Resource']
+        }),
+
         getTest: build.mutation<{ data: string }, void>({
             query: () => {
                 return {

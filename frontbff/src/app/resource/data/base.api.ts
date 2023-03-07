@@ -15,7 +15,7 @@ export const baseQueryWithLogout: BaseQueryFn<string | FetchArgs, unknown, Fetch
     async (args, api, extraOptions,) => {
         let result = await baseQuery(args, api, extraOptions)
 
-        if (result.error && result.error.status === 403) {
+        if (result.error && result.error.status === 407) {
             api.dispatch(authActions.setAuth(false))
         }
 
