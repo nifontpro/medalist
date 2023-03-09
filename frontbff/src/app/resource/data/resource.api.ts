@@ -7,10 +7,11 @@ export const resourceApi = createApi({
     tagTypes: ['Resource'],
     endpoints: (build) => ({
 
-        getTestData: build.query<{ res: string }, void>({
+        getUserData: build.query<{ res: string }, void>({
             query: () => {
                 return {
-                    method: 'GET',
+                    method: 'POST',
+                    body: {res: "Test User Body"},
                     url: 'bff/data',
                 }
             },
@@ -20,7 +21,8 @@ export const resourceApi = createApi({
         getAdminData: build.query<{ res: string }, void>({
             query: () => {
                 return {
-                    method: 'GET',
+                    method: 'POST',
+                    body: {res: "Test Admin Body"},
                     url: 'bff/admin_data',
                 }
             },
