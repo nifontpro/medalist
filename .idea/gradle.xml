@@ -9,6 +9,13 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/frontbff" />
+            <option value="$PROJECT_DIR$/msm-config" />
+            <option value="$PROJECT_DIR$/msm-front" />
+            <option value="$PROJECT_DIR$/msm-gateway" />
+            <option value="$PROJECT_DIR$/msm-server" />
+            <option value="$PROJECT_DIR$/msm-user" />
+            <option value="$PROJECT_DIR$/proxy-bff" />
           </set>
         </option>
       </GradleProjectSettings>
