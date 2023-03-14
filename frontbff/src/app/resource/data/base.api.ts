@@ -1,7 +1,6 @@
 import {BaseQueryFn, FetchArgs, fetchBaseQuery, FetchBaseQueryError} from "@reduxjs/toolkit/query";
 import {authActions} from "@/app/auth/data/auth.slice";
 
-// export const PROXY_SERVER_URL = "http://localhost:8902"
 export const PROXY_SERVER_URL = "https://localhost:8902"
 // export const PROXY_SERVER_URL = "https://localhost"
 

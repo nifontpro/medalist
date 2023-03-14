@@ -3,11 +3,53 @@ version: '3.9'
 services:
   nginx:
     image: nginx
+    container_name: msm_nginx
+    restart: always
     ports:
-      - 80:80
-      - 443:443
+      - "443:443"
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./nginx/localhost.cer:/root/ssl/localhost.cer
-      - ./nginx/localhost.pem:/root/ssl/localhost.pem
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/localhost:/etc/nginx/sites-enabled/localhost
+      - ./nginx/localhost:/etc/nginx/sites-available/localhost
+      - ./cert/localhost.cer:/etc/ssl/localhost.cer
+      - ./cert/localhost.pem:/etc/ssl/localhost.pem
+      - ./cert/rootca.cer:/etc/ssl/rootca.cer
 
+#  db:
+#    container_name: postgres_kc
+#    restart: unless-stopped
+#    image: postgres:15.2
+#    volumes:
+#      - ./postgres_data:/var/lib/postgresql/data
+#    env_file:
+#      - ./keycloak/.db-env
+#    command:
+#      - "-c"
+#      - "port=6432"
+#    ports:
+#      - "5555:6432"
+#    networks:
+#      - net
+#
+#  keycloak:
+#    container_name: msm_keycloak
+##    restart: unless-stopped
+#    image: quay.io/keycloak/keycloak:20.0.3
+#    env_file:
+#      - ./keycloak/.kc-env
+#    volumes:
+#      - ./cert/localhost.cer:/etc/ssl/localhost.cer
+#      - ./cert/localhost.pem:/etc/ssl/localhost.pem
+#      - ./keycloak/keycloak.conf:/etc/config/keycloak.conf
+#    command:
+#      - --config-file=/etc/config/keycloak.conf
+#      - start
+#    ports:
+#      - "9443:8444"
+#    depends_on:
+#      - db
+#    networks:
+#      - net
+#
+#networks:
+#  net:

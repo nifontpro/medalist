@@ -1,14 +1,16 @@
 import type {NextPage} from 'next';
 import React, {useEffect} from "react";
 import {useRouter} from "next/router";
-import {useAuthState} from "@/app/auth/data/auth.slice";
+import {authActions, useAuthState} from "@/app/auth/data/auth.slice";
 import {resourceApi} from "@/app/resource/data/resource.api";
 import {bffApi} from "@/app/resource/data/bffApi";
+import {useDispatch} from "react-redux";
 
 const Home: NextPage = () => {
 
     const {push} = useRouter()
     const {isAuth} = useAuthState()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         if (!isAuth) {
@@ -24,6 +26,7 @@ const Home: NextPage = () => {
 
     const logoutHandler = async (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()
+        dispatch(authActions.setAuth(false))
         await logout()
     }
 

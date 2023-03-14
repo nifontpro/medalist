@@ -1,6 +1,6 @@
 import type {NextPage} from 'next';
 import React, {useEffect} from "react";
-import {APP_URL, CLIENT_ID, KEYCLOAK_URI} from "@/app/auth/data/auth.api";
+import {APP_URL, AUTH_CODE_REDIRECT_URI, CLIENT_ID, KEYCLOAK_URI} from "@/app/auth/data/auth.api";
 
 export const STATE_KEY = "ST";
 export const RESPONSE_TYPE_CODE = "code"; // для получения authorization code
@@ -28,11 +28,11 @@ const Login: NextPage = () => {
         // в каждой версии KeyCloak может изменяться URL - поэтому нужно сверяться с документацией
         let authUrl = KEYCLOAK_URI + "/auth"; // здесь не исп. BFF, а обращаемся напрямую
 
-        authUrl += "?response_type=" + RESPONSE_TYPE_CODE; // указываем auth server, что хотим получить auth code
-        authUrl += "&client_id=" + CLIENT_ID; // берем из auth server
-        authUrl += "&state=" + state; // auth server сохранит это значение себе и отправит в запросе (вместе с access token) и клиент сможет убедиться, что ответ пришел именно на его запрос
-        authUrl += "&scope=" + SCOPE; // какие данные хотите получить от auth server, помимо access token
-        authUrl += "&redirect_uri=" + APP_URL + "/login/redirect"; // куда auth server будет отправлять ответ
+        authUrl += "?response_type=" + RESPONSE_TYPE_CODE // указываем auth server, что хотим получить auth code
+        authUrl += "&client_id=" + CLIENT_ID // берем из auth server
+        authUrl += "&state=" + state // auth server сохранит это значение себе и отправит в запросе (вместе с access token) и клиент сможет убедиться, что ответ пришел именно на его запрос
+        authUrl += "&scope=" + SCOPE // какие данные хотите получить от auth server, помимо access token
+        authUrl += "&redirect_uri=" + AUTH_CODE_REDIRECT_URI // куда auth server будет отправлять ответ
         // authUrl += "&redirect_uri=" + APP_URL // куда auth server будет отправлять ответ
 
         window.open(authUrl, '_self'); // открываем в этом же окне (self) окно авторизации KeyCloak
