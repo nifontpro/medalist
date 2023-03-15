@@ -1,74 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/frontbff" />
             <option value="$PROJECT_DIR$/msm-config" />
-            <option value="$PROJECT_DIR$/msm-front" />
             <option value="$PROJECT_DIR$/msm-gateway" />
             <option value="$PROJECT_DIR$/msm-server" />
             <option value="$PROJECT_DIR$/msm-user" />
-            <option value="$PROJECT_DIR$/proxy-bff" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/msm-config" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/msm-config" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/msm-front" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/msm-front" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/msm-gateway" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/msm-gateway" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/msm-server" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/msm-server" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/msm-user" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/msm-user" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/proxy-bff" />
-        <option name="modules">
-          <set>
             <option value="$PROJECT_DIR$/proxy-bff" />
           </set>
         </option>
