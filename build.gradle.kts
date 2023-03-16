@@ -1,18 +1,35 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
-    kotlin("jvm") version "1.8.0"
+    kotlin("jvm") apply false
 }
 
 group = "ru.nb.medalist"
 version = "1.0-SNAPSHOT"
 
-repositories {
-    mavenCentral()
+allprojects {
+
+    repositories {
+        mavenCentral()
+    }
+
+    tasks.withType<KotlinCompile> {
+        kotlinOptions {
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+            jvmTarget = "17"
+        }
+    }
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
 }
 
-tasks.test {
-    useJUnitPlatform()
+subprojects {
+    group = rootProject.group
+    version = rootProject.version
 }
 
-kotlin {
-    jvmToolchain(8)
-}
+//kotlin {
+//    jvmToolchain(8)
+//}

@@ -1,6 +1,6 @@
 import type {NextPage} from 'next';
 import React, {useEffect} from "react";
-import {APP_URL, AUTH_CODE_REDIRECT_URI, CLIENT_ID, KEYCLOAK_URI} from "@/app/auth/data/auth.api";
+import {AUTH_CODE_REDIRECT_URI, CLIENT_ID, KEYCLOAK_URI} from "@/app/auth/data/auth.api";
 
 export const STATE_KEY = "ST";
 export const RESPONSE_TYPE_CODE = "code"; // для получения authorization code
