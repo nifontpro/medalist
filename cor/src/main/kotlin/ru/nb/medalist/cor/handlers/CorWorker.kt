@@ -1,8 +1,8 @@
-package ru.otus.cor.handlers
+package ru.nb.medalist.cor.handlers
 
-import ru.otus.cor.CorDslMarker
-import ru.otus.cor.ICorExec
-import ru.otus.cor.ICorWorkerDsl
+import ru.nb.medalist.cor.CorDslMarker
+import ru.nb.medalist.cor.ICorExec
+import ru.nb.medalist.cor.ICorWorkerDsl
 
 class CorWorker<T>(
 	title: String,

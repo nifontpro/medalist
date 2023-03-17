@@ -1,4 +1,4 @@
-package ru.otus.cor
+package ru.nb.medalist.cor
 
 /**
  * Блок кода, который обрабатывает контекст. Имеет имя и описание

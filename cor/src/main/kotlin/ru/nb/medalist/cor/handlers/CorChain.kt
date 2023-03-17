@@ -1,12 +1,12 @@
-package ru.otus.cor.handlers
+package ru.nb.medalist.cor.handlers
 
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.launch
-import ru.otus.cor.CorDslMarker
-import ru.otus.cor.ICorChainDsl
-import ru.otus.cor.ICorExec
-import ru.otus.cor.ICorExecDsl
+import ru.nb.medalist.cor.CorDslMarker
+import ru.nb.medalist.cor.ICorChainDsl
+import ru.nb.medalist.cor.ICorExec
+import ru.nb.medalist.cor.ICorExecDsl
 
 /**
  * Реализация цепочки (chain), которая исполняет свои вложенные цепочки и рабочие

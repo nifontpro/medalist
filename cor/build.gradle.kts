@@ -2,15 +2,14 @@ plugins {
     kotlin("jvm")
 }
 
-//val coroutinesVersion: String by project
+val coroutinesVersion: String by project
 
 group = rootProject.group
 version = rootProject.version
 
 dependencies {
     implementation(kotlin("stdlib-common"))
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-//    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
 
     implementation(kotlin("test-common"))
     implementation(kotlin("test-annotations-common"))
