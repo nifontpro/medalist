@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b4c7da5-fa90-47e9-82a8-926370f1259a" name="Changes" comment="git rm" />
+    <list default="true" id="0b4c7da5-fa90-47e9-82a8-926370f1259a" name="Changes" comment="git rm">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/keycloak/.db-env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/keycloak/.kc-env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/keycloak/keycloak.conf" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,11 +123,11 @@
       <recent name="C:\Users\Nifont\program\medalist\ms-user\domain\src\main\kotlin\ru\nb\medalist\msuser\domain\bussines\base\workers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Nifont\program\medalist\docker\keycloak" />
       <recent name="C:\Users\Nifont\program\medalist\ms-user\di\src\main\kotlin\ru\nb\medalist\msuser\di" />
       <recent name="C:\Users\Nifont\program\medalist\ms-user\di\src\main\kotlin" />
       <recent name="C:\Users\Nifont\program\medalist\ms-user\db\src\main\kotlin\ru\nb\medalist\msuser\db" />
       <recent name="C:\Users\Nifont\program\medalist\base\src\main\kotlin\ru\nb\medalist\base\utils" />
-      <recent name="C:\Users\Nifont\program\medalist\cor\src\main\kotlin\ru\otus\cor\base" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="ru.nb.medalist.msuser.db.di" />
@@ -274,7 +279,7 @@
       <workItem from="1680072728529" duration="3000" />
       <workItem from="1680109831208" duration="1369000" />
       <workItem from="1680187002335" duration="23000" />
-      <workItem from="1680460288163" duration="989000" />
+      <workItem from="1680460288163" duration="2004000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <created>1678908786412</created>
@@ -311,7 +316,42 @@
       <option name="project" value="LOCAL" />
       <updated>1680461209633</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="git rm">
+      <created>1680461495471</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1680461495471</updated>
+    </task>
+    <task id="LOCAL-00007" summary="git rm">
+      <created>1680461507921</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1680461507921</updated>
+    </task>
+    <task id="LOCAL-00008" summary="git rm">
+      <created>1680461552444</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680461552444</updated>
+    </task>
+    <task id="LOCAL-00009" summary="git rm">
+      <created>1680461610309</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680461610309</updated>
+    </task>
+    <task id="LOCAL-00010" summary="git rm">
+      <created>1680461768012</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680461768012</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
