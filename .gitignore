@@ -40,3 +40,7 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+/docker/keycloak/.db-env
+/docker/keycloak/.kc-env
+/docker/keycloak/keycloak.conf
