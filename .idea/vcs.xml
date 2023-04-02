@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ms-user" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/msm-config" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/msm-gateway" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/msm-server" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/msm-user" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/proxy-bff" vcs="Git" />
+  </component>
+</project>
